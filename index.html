@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lahav Herman</title>
+  <meta name="description" content="Lahav Herman — CLI tools, Raspberry Pi projects, and security scripting." />
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="nav-brand" href="index.html">
+        <svg class="nav-mark" viewBox="0 0 32 32" aria-hidden="true">
+          <circle cx="16" cy="16" r="12" fill="none" stroke="currentColor" stroke-width="1.4"/>
+          <circle cx="16" cy="16" r="7.5" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="2 2.4"/>
+          <circle cx="16" cy="16" r="2" fill="currentColor"/>
+        </svg>
+        Lahav Herman
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#apps">Web Apps</a>
+        <a href="files.html">Files</a>
+        <a href="https://github.com/lahav-herman" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <h1>Lahav Herman<span class="cursor"></span></h1>
+        <span class="hero-rule"></span>
+        <p>
+          I build small tools for very specific purposes - command-line scripts, a terminal dashboard, and automation for security recon.
+          
+          Here is what they do, how they run, and a direct link to the source code to try it for yourself!
+
+          Here are my favorite projects:
+        </p>
+        <div class="hero-links">
+          <a class="btn primary" href="#projects">View Projects</a>
+          <a class="btn" href="https://github.com/lahav-herman" target="_blank" rel="noopener">GitHub Profile</a>
+        </div>
+      </div>
+
+      <div class="hero-mark">
+        <img class="mark-word mark-lahav" src="assets/img/LAHAV.svg" alt="Lahav" />
+        <img class="mark-word mark-herman" src="assets/img/HERMAN.svg" alt="Herman" />
+        <div class="mark-hit-zone" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="section-head">
+        <h2>Projects</h2>
+        <span class="index">01 — 03</span>
+      </div>
+
+      <article class="project" id="hex-codec">
+        <div class="project-head">
+          <h3>Hex Encoder / Decoder</h3>
+        </div>
+        <p class="project-tag">A command-line tool for custom hexadecimal encoding and decoding.</p>
+
+        <p>
+          Takes text in and produces a custom hex-encoded form out, and back again. Built as a
+          practical exercise in file I/O, JSON handling, and structuring a small Python project
+          across multiple modules rather than one script.
+        </p>
+        <p>
+          Beyond plain encode/decode, it supports an optional <strong>secret key</strong> that
+          shifts the encoding and a <strong>noise</strong> parameter that pads the output —
+          enough to make the result non-trivial to reverse without the tool, without pretending
+          to be real cryptography.
+        </p>
+
+        <table class="info-table">
+          <tr><th>Language</th><td>Python 3</td></tr>
+          <tr><th>Dependencies</th><td>None — standard library only (<code>argparse</code>)</td></tr>
+          <tr><th>Interface</th><td>Command-line, file or terminal input/output</td></tr>
+          <tr><th>Source</th><td><a href="https://github.com/lahav-herman/custom-dexdec-encoding" target="_blank" rel="noopener">github.com/lahav-herman/custom-dexdec-encoding</a></td></tr>
+        </table>
+
+        <pre><code># Encode text typed into the terminal, print the result
+python main.py -e -rt -s mysecret -n 4 -ot
+
+# Decode a file, write the result to another file
+python main.py -d -rf encoded.txt -s mysecret -of decoded.txt</code></pre>
+
+        <table class="info-table">
+          <tr><th><code>-e</code> / <code>--encode</code></th><td>Run in encode mode</td></tr>
+          <tr><th><code>-d</code> / <code>--decode</code></th><td>Run in decode mode</td></tr>
+          <tr><th><code>-rt</code></th><td>Read input from the terminal</td></tr>
+          <tr><th><code>-rf &lt;path&gt;</code></th><td>Read input from a file</td></tr>
+          <tr><th><code>-s</code> / <code>--secret &lt;key&gt;</code></th><td>Secret key used to shift the encoding</td></tr>
+          <tr><th><code>-n</code> / <code>--noise &lt;int&gt;</code></th><td>Amount of padding noise added to the output</td></tr>
+          <tr><th><code>-ot</code></th><td>Print the result to the terminal</td></tr>
+          <tr><th><code>-of &lt;path&gt;</code></th><td>Write the result to a file</td></tr>
+          <tr><th><code>-c &lt;name&gt;</code></th><td>Create an empty file at startup</td></tr>
+        </table>
+      </article>
+
+      <article class="project" id="pi-status-tui">
+        <div class="project-head">
+          <h3>Raspberry Pi Status TUI</h3>
+        </div>
+        <p class="project-tag">A terminal dashboard for keeping an eye on a Raspberry Pi.</p>
+
+        <div class="callout">
+          In development — no public source yet. This section will fill in as the project
+          takes shape.
+        </div>
+
+        <p>
+          The plan: a lightweight terminal UI that runs on the Pi itself (over SSH or on an
+          attached display) and shows live system vitals at a glance — CPU load, memory usage,
+          temperature, disk space, and network activity — without needing a browser or a
+          monitoring stack.
+        </p>
+
+        <table class="info-table">
+          <tr><th>Target</th><td>Raspberry Pi (any model with a terminal)</td></tr>
+          <tr><th>Interface</th><td>Terminal UI (TUI)</td></tr>
+        </table>
+      </article>
+
+      <article class="project" id="vuln-scanner">
+        <div class="project-head">
+          <h3>Automatic Vulnerability Scanner</h3>
+        </div>
+        <p class="project-tag">A Python automation pipeline for bug bounty reconnaissance.</p>
+
+        <p>
+          Chains together a sequence of recon tools into a single run: subdomain discovery,
+          DNS resolution, web probing, crawling, and vulnerability template scanning —
+          against one target domain, with no manual steps in between.
+        </p>
+
+        <p>Given a domain, the pipeline runs, in order:</p>
+        <ol>
+          <li><strong>subfinder</strong> — enumerate subdomains</li>
+          <li><strong>dnsx</strong> — resolve which hosts are live</li>
+          <li><strong>httpx</strong> — probe for web servers (ports 80, 443, 8080)</li>
+          <li><strong>katana</strong> — crawl discovered hosts (depth 5)</li>
+          <li><strong>nuclei</strong> — scan for known vulnerabilities (low through critical severity)</li>
+        </ol>
+        <p>
+          Each stage logs its own output and is checked for a non-empty result before the next
+          stage runs, so a silent failure partway through doesn't waste the rest of the scan.
+        </p>
+
+        <table class="info-table">
+          <tr><th>Language</th><td>Python 3.12+</td></tr>
+          <tr><th>Requires</th><td>subfinder, dnsx, httpx, katana, nuclei (ProjectDiscovery toolchain), <code>termcolor</code></td></tr>
+          <tr><th>Platform</th><td>Linux / macOS (shells out to external CLI tools)</td></tr>
+          <tr><th>Source</th><td><a href="https://github.com/lahav-herman/automatic-vulnerabillity-scanner" target="_blank" rel="noopener">github.com/lahav-herman/automatic-vulnerabillity-scanner</a></td></tr>
+        </table>
+
+        <pre><code>python launcher.py
+# prompts for a target domain, asks for confirmation,
+# then runs the full pipeline and logs each stage to &lt;domain&gt;_BB/</code></pre>
+
+        <div class="callout">
+          This is a personal automation script, not a polished product — straight from the
+          project's own README: "has requirements but I don't remember them so use at your own
+          risk / read the code." The five tools above need to be installed separately; the
+          script doesn't bundle or check for them.
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="apps">
+      <div class="section-head">
+        <h2>Web Apps</h2>
+        <span class="index">—</span>
+      </div>
+      <p class="section-note">Small tools built directly in HTML/CSS/JS and hosted live on this site — try them right in the browser.</p>
+
+      <div class="grid">
+        <div class="card">
+          <h3><a href="apps/orbital-notation/index.html">Orbital Notation</a></h3>
+          <p>A sandbox for building a custom circle-based visual encoding system —
+             compose circles and lines, lock them to one another or to fixed
+             angles, and export the result.</p>
+          <div class="card-tags"><span class="tag">SVG</span><span class="tag">Vanilla JS</span></div>
+          <div class="card-links"><a href="apps/orbital-notation/index.html">Open</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Lahav Herman &middot; <a href="https://github.com/lahav-herman" target="_blank" rel="noopener">github.com/lahav-herman</a></p>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

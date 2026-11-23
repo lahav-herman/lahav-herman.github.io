@@ -1,0 +1,548 @@
+/* lahav-herman.github.io — shared site styles
+   Monochrome, line-diagram aesthetic: thin white strokes on black,
+   uppercase wide-tracked headings, orbit/node motifs. */
+
+:root {
+  --bg: #050505;
+  --bg-raised: #0c0c0c;
+  --bg-card: #0a0a0a;
+  --border: rgba(255, 255, 255, 0.16);
+  --border-strong: rgba(255, 255, 255, 0.4);
+  --line: rgba(255, 255, 255, 0.55);
+  --text: #f2f2f2;
+  --text-dim: #8c8c8c;
+  --text-faint: #5a5a5a;
+  --sans: "Helvetica Neue", Arial, "Segoe UI", sans-serif;
+  --mono: ui-monospace, "Cascadia Code", "Fira Code", Consolas, "SF Mono", Menlo, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  line-height: 1.65;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border-strong);
+}
+
+a:hover {
+  color: #fff;
+  border-color: #fff;
+}
+
+.card a,
+.file-list a {
+  border-bottom: none;
+}
+
+code, pre {
+  font-family: var(--mono);
+}
+
+pre {
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+
+/* ---------- Header / nav ---------- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  border-bottom: 1px solid var(--border);
+  background: rgba(5, 5, 5, 0.92);
+  backdrop-filter: blur(4px);
+}
+
+.nav {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem clamp(2rem, 10vw, 9rem);
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text);
+  border-bottom: none;
+}
+
+.nav-mark {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.6rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  color: var(--text-dim);
+  font-size: 0.74rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--text);
+  border-color: var(--text);
+}
+
+/* ---------- Layout ---------- */
+
+main {
+  flex: 1;
+  width: 100%;
+  margin: 0;
+  padding: 3rem clamp(2rem, 10vw, 9rem) 4rem;
+}
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  text-align: left;
+  padding: 1.75rem clamp(2rem, 10vw, 9rem);
+  color: var(--text-faint);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.site-footer a {
+  color: var(--text-faint);
+  border-bottom: 1px solid transparent;
+}
+
+.site-footer a:hover {
+  color: var(--text);
+  border-color: var(--text-faint);
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+  padding: 2rem 0 1rem;
+}
+
+.hero-copy .hero-tag {
+  font-family: var(--mono);
+  color: var(--text-faint);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  margin: 0 0 1.1rem;
+}
+
+.hero-copy h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 0 0.9rem;
+  font-weight: 600;
+}
+
+.hero-rule {
+  display: block;
+  width: 64px;
+  height: 1px;
+  background: var(--text);
+  margin: 0 0 1.4rem;
+}
+
+.cursor {
+  display: inline-block;
+  width: 0.5ch;
+  background: var(--text);
+  margin-left: 2px;
+  animation: blink 1.1s steps(1) infinite;
+}
+
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.hero-copy p {
+  color: var(--text-dim);
+  max-width: 48ch;
+  font-size: 0.98rem;
+}
+
+.hero-links {
+  margin-top: 1.6rem;
+  display: flex;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+}
+
+.hero-mark {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 1 / 1.08;
+}
+
+.mark-word {
+  position: absolute;
+  height: auto;
+  transition: top 0.35s ease, left 0.35s ease, width 0.35s ease, filter 0.35s ease, z-index 0.35s;
+}
+
+/*
+ * LAHAV.svg and HERMAN.svg don't fill their own viewBox by the same amount
+ * (LAHAV's linework fills ~88% of its box, HERMAN's only ~72%), so equal
+ * `width` values render visibly different ink sizes. Each word gets its own
+ * width per slot, scaled so the actual drawn marks end up the same size.
+ */
+
+.mark-lahav {
+  top: 18%;
+  left: 0;
+  width: 70%;
+  z-index: 2;
+  filter: brightness(1);
+}
+
+.mark-herman {
+  top: 0;
+  left: 49%;
+  width: 51%;
+  z-index: 1;
+  filter: brightness(0.5);
+}
+
+.hero-mark.swapped .mark-lahav {
+  top: 0;
+  left: 58%;
+  width: 42%;
+  z-index: 1;
+  filter: brightness(0.5);
+}
+
+.hero-mark.swapped .mark-herman {
+  top: 10%;
+  left: 0;
+  width: 85%;
+  z-index: 2;
+  filter: brightness(1);
+}
+
+.mark-hit-zone {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 50%;
+  z-index: 3;
+  cursor: pointer;
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.65rem 1.2rem;
+  border: 1px solid var(--border-strong);
+  color: var(--text);
+  background: transparent;
+  border-bottom: 1px solid var(--border-strong);
+  transition: background 0.15s, color 0.15s;
+}
+
+.btn:hover {
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
+}
+
+.btn.primary {
+  border-color: var(--text);
+}
+
+/* ---------- Section headings ---------- */
+
+.section {
+  margin-top: 4rem;
+  scroll-margin-top: 6.5rem;
+}
+
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.4rem;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.9rem;
+}
+
+.section-head h2 {
+  margin: 0;
+  font-size: 0.85rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.section-head .index {
+  color: var(--text-faint);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+}
+
+.section-note {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  margin: 1rem 0 1.6rem;
+}
+
+/* ---------- Cards / grid ---------- */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  padding: 1.4rem;
+}
+
+.card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.card h3 a {
+  border-bottom: none;
+}
+
+.card p {
+  color: var(--text-dim);
+  font-size: 0.88rem;
+  margin: 0 0 1rem;
+  flex: 1;
+}
+
+.card-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.tag {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: var(--text-faint);
+  border: 1px solid var(--border);
+  padding: 0.15rem 0.5rem;
+}
+
+.card-links {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ---------- Project (in-page) sections ---------- */
+
+.project {
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--border);
+  margin-top: 2.5rem;
+  scroll-margin-top: 6.5rem;
+}
+
+.project:first-of-type {
+  border-top: none;
+}
+
+.project-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.project-head h3 {
+  margin: 0 0 0.3rem;
+  font-size: 1.4rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.project-tag {
+  color: var(--text-dim);
+  margin: 0 0 1.3rem;
+  font-size: 0.95rem;
+}
+
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.2rem 0 1.5rem;
+  font-size: 0.84rem;
+}
+
+.info-table th, .info-table td {
+  text-align: left;
+  padding: 0.5rem 0.8rem 0.5rem 0;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.info-table th {
+  color: var(--text-faint);
+  font-family: var(--mono);
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  width: 1%;
+}
+
+.callout {
+  border: 1px solid var(--border);
+  border-left: 2px solid var(--text);
+  background: var(--bg-raised);
+  padding: 1rem 1.2rem;
+  font-size: 0.86rem;
+  color: var(--text-dim);
+  margin: 1.3rem 0;
+}
+
+.files-box {
+  border: 1px dashed var(--border);
+  padding: 1rem 1.2rem;
+  margin-top: 1.5rem;
+  font-size: 0.86rem;
+  color: var(--text-dim);
+}
+
+.files-box h4 {
+  margin: 0 0 0.5rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.file-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.file-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+
+.file-list li:last-child {
+  border-bottom: none;
+}
+
+.file-list .meta {
+  color: var(--text-faint);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  white-space: nowrap;
+}
+
+.page-head h1 {
+  margin: 0 0 0.4rem;
+  font-size: 1.7rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.page-tag {
+  color: var(--text-dim);
+  margin: 0 0 2rem;
+}
+
+@media (max-width: 760px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-mark {
+    order: -1;
+    max-width: 320px;
+    margin: 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .nav {
+    flex-direction: column;
+    gap: 0.7rem;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    gap: 1rem;
+  }
+}

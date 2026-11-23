@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Orbital Notation — Lahav Herman</title>
+  <meta name="description" content="A sandbox for building a custom circle-based visual encoding system." />
+  <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <a class="back-link" href="../../index.html#apps">&larr; Lahav Herman / Web Apps</a>
+    <h1>Orbital Notation</h1>
+    <p class="app-tag">Compose circles and lines into a custom visual encoding.</p>
+  </header>
+
+  <main class="workspace">
+    <section class="panel palette" aria-label="Add object">
+      <h2>Add</h2>
+      <div class="palette-grid">
+        <button class="palette-btn" data-type="circle" type="button">
+          <svg class="ref-icon" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="16" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          <span>Circle</span>
+        </button>
+        <button class="palette-btn" data-type="line" type="button">
+          <svg class="ref-icon" viewBox="0 0 48 48" aria-hidden="true"><line x1="8" y1="38" x2="40" y2="10" stroke="currentColor" stroke-width="2"/><circle cx="8" cy="38" r="2.4" fill="currentColor"/><circle cx="40" cy="10" r="2.4" fill="currentColor"/></svg>
+          <span>Line</span>
+        </button>
+      </div>
+
+      <h2>Objects</h2>
+      <ul class="object-list" id="object-list"></ul>
+
+      <h2>Export</h2>
+      <div class="export-row">
+        <button class="btn" id="export-svg" type="button">Export SVG</button>
+        <button class="btn" id="export-png" type="button">Export PNG</button>
+      </div>
+    </section>
+
+    <section class="canvas-wrap" aria-label="Canvas">
+      <svg id="canvas" viewBox="0 0 640 640" xmlns="http://www.w3.org/2000/svg">
+        <line class="origin-mark" x1="320" y1="312" x2="320" y2="328"/>
+        <line class="origin-mark" x1="312" y1="320" x2="328" y2="320"/>
+        <g id="objects-layer"></g>
+      </svg>
+    </section>
+
+    <section class="panel inspector" id="inspector" aria-label="Object properties">
+      <h2>Properties</h2>
+      <p class="empty-note" id="inspector-empty">Select or add an object to edit it.</p>
+      <div id="inspector-body" hidden></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

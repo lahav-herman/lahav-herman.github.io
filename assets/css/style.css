@@ -100,8 +100,8 @@ pre {
 }
 
 .nav-mark {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   display: block;
 }
 
@@ -266,6 +266,48 @@ main {
   width: 85%;
   z-index: 2;
   filter: brightness(1);
+}
+
+/* Focused (front) word — LAHAV by default, HERMAN when swapped — opens the
+   zoom view on click, so it can be looked at / read up close. */
+.hero-mark:not(.swapped) .mark-lahav,
+.hero-mark.swapped .mark-herman {
+  cursor: zoom-in;
+}
+
+.mark-zoom {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(5, 5, 5, 0);
+  visibility: hidden;
+  cursor: zoom-out;
+  outline: none;
+  transition: background 0.4s ease, visibility 0s 0.45s;
+}
+
+.mark-zoom.open {
+  background: rgba(5, 5, 5, 0.97);
+  visibility: visible;
+  transition: background 0.4s ease, visibility 0s;
+}
+
+.mark-zoom img {
+  width: min(88vw, 80vh);
+  height: auto;
+  transform-origin: 0 0;
+  transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mark-zoom,
+  .mark-zoom.open,
+  .mark-zoom img {
+    transition: none;
+  }
 }
 
 .mark-hit-zone {

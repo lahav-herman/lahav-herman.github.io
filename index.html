@@ -12,10 +12,13 @@
   <header class="site-header">
     <nav class="nav">
       <a class="nav-brand" href="index.html">
-        <svg class="nav-mark" viewBox="0 0 32 32" aria-hidden="true">
-          <circle cx="16" cy="16" r="12" fill="none" stroke="currentColor" stroke-width="1.4"/>
-          <circle cx="16" cy="16" r="7.5" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="2 2.4"/>
-          <circle cx="16" cy="16" r="2" fill="currentColor"/>
+        <svg class="nav-mark" viewBox="44 54 520 520" fill="none" aria-hidden="true">
+          <path d="M365.335 303.423C366.427 308.946 367 314.656 367 320.5C367 326.344 366.427 332.054 365.335 337.577M352.262 271.884C345.874 262.342 337.658 254.126 328.116 247.738M296.577 234.665C291.054 233.573 285.344 233 279.5 233C273.656 233 267.946 233.573 262.423 234.665M230.884 247.738C221.342 254.126 213.126 262.342 206.738 271.884M193.665 303.423C192.573 308.946 192 314.656 192 320.5C192 326.344 192.573 332.054 193.665 337.577M206.738 369.116C213.126 378.658 221.342 386.874 230.884 393.262M262.423 406.335C267.946 407.427 273.656 408 279.5 408C285.344 408 291.054 407.427 296.577 406.335M328.116 393.262C337.658 386.874 345.874 378.658 352.262 369.116" stroke="currentColor" stroke-width="22" stroke-linecap="round"/>
+          <path d="M475.328 291.79C481.774 334.895 473.781 378.922 452.593 417.01C431.406 455.097 398.215 485.107 358.192 502.362C318.169 519.618 273.562 523.149 231.323 512.407C189.083 501.665 151.583 477.253 124.666 442.974C97.7488 408.695 82.9267 366.475 82.5091 322.892C82.0915 279.31 96.1019 236.814 122.357 202.025C148.612 167.237 185.638 142.11 227.664 130.561C269.69 119.011 314.356 121.687 354.702 138.173" stroke="currentColor" stroke-width="28" stroke-linecap="round"/>
+          <circle cx="437" cy="197" r="38" fill="currentColor"/>
+          <circle cx="437" cy="197.5" r="86" stroke="currentColor" stroke-width="16"/>
+          <circle cx="437.5" cy="110.5" r="22" fill="currentColor"/>
+          <circle cx="437" cy="288" r="16" fill="currentColor"/>
         </svg>
         Lahav Herman
       </a>
@@ -47,9 +50,11 @@
         </div>
       </div>
 
+      <!-- Hero mark: two word-images, referred to as "LAHAV" and "HERMAN".
+           The one in front is the "focused" word; clicking it makes it pop. -->
       <div class="hero-mark">
-        <img class="mark-word mark-lahav" src="assets/img/LAHAV.svg" alt="Lahav" />
-        <img class="mark-word mark-herman" src="assets/img/HERMAN.svg" alt="Herman" />
+        <img id="LAHAV" class="mark-word mark-lahav" src="assets/img/LAHAV.svg" alt="Lahav" />
+        <img id="HERMAN" class="mark-word mark-herman" src="assets/img/HERMAN.svg" alt="Herman" />
         <div class="mark-hit-zone" aria-hidden="true"></div>
       </div>
     </section>
@@ -180,16 +185,7 @@ python main.py -d -rf encoded.txt -s mysecret -of decoded.txt</code></pre>
       </div>
       <p class="section-note">Small tools built directly in HTML/CSS/JS and hosted live on this site — try them right in the browser.</p>
 
-      <div class="grid">
-        <div class="card">
-          <h3><a href="apps/orbital-notation/index.html">Orbital Notation</a></h3>
-          <p>A sandbox for building a custom circle-based visual encoding system —
-             compose circles and lines, lock them to one another or to fixed
-             angles, and export the result.</p>
-          <div class="card-tags"><span class="tag">SVG</span><span class="tag">Vanilla JS</span></div>
-          <div class="card-links"><a href="apps/orbital-notation/index.html">Open</a></div>
-        </div>
-      </div>
+      <div class="callout">No web apps live right now — new ones will show up here.</div>
     </section>
   </main>
 

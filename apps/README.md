@@ -17,6 +17,4 @@ however fits them, as long as they roughly follow the same monochrome palette.
 
 ## Live apps
 
-- [`orbital-notation/`](orbital-notation/index.html) — a sandbox for building a
-  custom circle-based visual encoding system: compose circles and lines, lock
-  them to one another or to fixed angles, and export the result as SVG or PNG.
+None yet.
